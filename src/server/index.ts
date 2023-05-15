@@ -3,6 +3,7 @@ import morgan from "morgan";
 import cors from "cors";
 import robotsRouter from "./routers/robots/robotsRouter.js";
 import { generalError, notFoundError } from "./middlewares/errorMiddlewares.js";
+import userRouter from "./routers/users/userRouter.js";
 
 const allowedOrigins = [
   "http://localhost:5173",
@@ -22,6 +23,8 @@ app.use(express.json());
 app.disable("x-powered-by");
 
 app.use(morgan("dev"));
+
+app.use("/user", userRouter);
 
 app.use("/robots", robotsRouter);
 
