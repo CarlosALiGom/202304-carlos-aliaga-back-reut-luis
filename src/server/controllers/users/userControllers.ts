@@ -37,8 +37,6 @@ const loginUser = async (
 
     const token = jwt.sign(tokenPayload, process.env.JWT_SECRET!);
 
-    jwt.verify(token, process.env.JWT_SECRET!);
-
     res.status(200).json({ token });
   } catch (error: unknown) {
     next(error);
